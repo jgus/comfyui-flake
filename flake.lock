@@ -65,11 +65,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781685849,
-        "narHash": "sha256-XEj0DsQHAQW1P5tSXDR+oCadm9r//1//nlkDttCTD5g=",
+        "lastModified": 1782202282,
+        "narHash": "sha256-0myaHiqLWDV1Q3aPYUZczcdOmBwpd3uJU9auYQTOVYs=",
         "owner": "jgus",
         "repo": "comfyui-embedded-docs-flake",
-        "rev": "7c4a579c7238c91cb0c6d8189d647042676e380e",
+        "rev": "cebc715d493143b4695e344a3ff14beb3651e0ff",
         "type": "github"
       },
       "original": {
