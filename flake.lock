@@ -91,11 +91,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783337254,
-        "narHash": "sha256-5r1XJW759+n6WrtZRcLnyRs174+sCXgv0/Wy8QDxLC0=",
+        "lastModified": 1783419971,
+        "narHash": "sha256-NbKGSayuXweK9DhZggGiLtXxEdymok8esTyv6M3FPcI=",
         "owner": "jgus",
         "repo": "comfyui-frontend-package-flake",
-        "rev": "2b6861edeaaf9e1479ac78a89a44f197c885010c",
+        "rev": "31d6643bf86b04eba8027614545aec1fec20161b",
         "type": "github"
       },
       "original": {
