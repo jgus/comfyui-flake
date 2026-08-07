@@ -39,11 +39,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785836836,
-        "narHash": "sha256-GHMBhZSSkc7rClpigMvJ0kmA6eAGGwBMgiV1hprpbsU=",
+        "lastModified": 1786090849,
+        "narHash": "sha256-MtbJ7dmwjtPMTb2G6cWr4Q1pFRS5i/Brow1aKm0RWjI=",
         "owner": "jgus",
         "repo": "comfy-kitchen-flake",
-        "rev": "f1fb20fcbe52534ae2a0a183fe2b8c8406ebac83",
+        "rev": "60e5f38422e562756602a37758ec775e3a347daa",
         "type": "github"
       },
       "original": {
