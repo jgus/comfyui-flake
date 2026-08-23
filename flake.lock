@@ -13,11 +13,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787383697,
-        "narHash": "sha256-32jMhI7UwjHv/vjRv5LkaAa2tUtSVswK7W3ZDkhATsM=",
+        "lastModified": 1787470227,
+        "narHash": "sha256-Ybu16lUYGaNbhEZY/mnveYz8x9L4HpmfaNq9xOHA6d0=",
         "owner": "jgus",
         "repo": "comfy-aimdo-flake",
-        "rev": "4f43d4b298f207bc33e3317a1c6dbe22a88bb349",
+        "rev": "20d14aacdb9670a33a36f22343668e9261e3ebaf",
         "type": "github"
       },
       "original": {
