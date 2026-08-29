@@ -20,31 +20,31 @@
       inputs.flake-lib.follows = "flake-lib";
     };
     comfyui-frontend-package = {
-      url = "github:jgus/comfyui-frontend-package-flake/v1.49.6";
+      url = "github:jgus/comfyui-frontend-package-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     comfyui-workflow-templates = {
-      url = "github:jgus/comfyui-workflow-templates-flake/v0.11.48";
+      url = "github:jgus/comfyui-workflow-templates-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     comfyui-embedded-docs = {
-      url = "github:jgus/comfyui-embedded-docs-flake/v0.5.10";
+      url = "github:jgus/comfyui-embedded-docs-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     comfy-kitchen = {
-      url = "github:jgus/comfy-kitchen-flake/v0.2.31";
+      url = "github:jgus/comfy-kitchen-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     comfy-aimdo = {
-      url = "github:jgus/comfy-aimdo-flake/v0.4.15";
+      url = "github:jgus/comfy-aimdo-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
@@ -117,6 +117,7 @@
           update-version = flake-lib.lib.mkUpdateVersion {
             inherit pkgs source;
             buildAttr = "comfyui";
+            siblingRefsInPin = true;
             siblings = map
               (reqName: {
                 inherit reqName;
@@ -135,11 +136,6 @@
           update-branches = flake-lib.lib.mkUpdateBranches {
             inherit pkgs source;
             pinSchema = "github";
-            branchOwnedFiles = [
-              "flake.nix"
-              "pin.nix"
-              "flake.lock"
-            ];
           };
           default = pkgs.comfyui;
         };
