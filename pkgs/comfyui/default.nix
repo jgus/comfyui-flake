@@ -63,12 +63,6 @@ let
     spandrel
     comfyui-frontend-package
     comfyui-workflow-templates
-    # comfyui-workflow-templates is a re-exporter; its actual content ships in 5 sibling sub-packages. All must be on PYTHONPATH or ComfyUI's frontend disables the template browser.
-    comfyui-workflow-templates-core
-    comfyui-workflow-templates-media-api
-    comfyui-workflow-templates-media-video
-    comfyui-workflow-templates-media-image
-    comfyui-workflow-templates-media-other
     comfyui-embedded-docs
     comfy-kitchen
     comfy-aimdo
