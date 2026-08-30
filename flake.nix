@@ -31,37 +31,6 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
-    # comfyui-workflow-templates is a re-exporter shim — its actual content lives in 5 sub-packages whose import paths it forwards from. Without these, `import comfyui_workflow_templates` raises ImportError at runtime and ComfyUI's frontend disables the template browser.
-    comfyui-workflow-templates-core = {
-      url = "github:jgus/comfyui-workflow-templates-core-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-lib.follows = "flake-lib";
-    };
-    comfyui-workflow-templates-media-api = {
-      url = "github:jgus/comfyui-workflow-templates-media-api-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-lib.follows = "flake-lib";
-    };
-    comfyui-workflow-templates-media-video = {
-      url = "github:jgus/comfyui-workflow-templates-media-video-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-lib.follows = "flake-lib";
-    };
-    comfyui-workflow-templates-media-image = {
-      url = "github:jgus/comfyui-workflow-templates-media-image-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-lib.follows = "flake-lib";
-    };
-    comfyui-workflow-templates-media-other = {
-      url = "github:jgus/comfyui-workflow-templates-media-other-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-lib.follows = "flake-lib";
-    };
     comfyui-embedded-docs = {
       url = "github:jgus/comfyui-embedded-docs-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -90,11 +59,6 @@
     , spandrel
     , comfyui-frontend-package
     , comfyui-workflow-templates
-    , comfyui-workflow-templates-core
-    , comfyui-workflow-templates-media-api
-    , comfyui-workflow-templates-media-video
-    , comfyui-workflow-templates-media-image
-    , comfyui-workflow-templates-media-other
     , comfyui-embedded-docs
     , comfy-kitchen
     , comfy-aimdo
@@ -123,11 +87,6 @@
                 spandrel = spandrel.packages.${system}."spandrel";
                 comfyui-frontend-package = comfyui-frontend-package.packages.${system}."comfyui-frontend-package";
                 comfyui-workflow-templates = comfyui-workflow-templates.packages.${system}."comfyui-workflow-templates";
-                comfyui-workflow-templates-core = comfyui-workflow-templates-core.packages.${system}."comfyui-workflow-templates-core";
-                comfyui-workflow-templates-media-api = comfyui-workflow-templates-media-api.packages.${system}."comfyui-workflow-templates-media-api";
-                comfyui-workflow-templates-media-video = comfyui-workflow-templates-media-video.packages.${system}."comfyui-workflow-templates-media-video";
-                comfyui-workflow-templates-media-image = comfyui-workflow-templates-media-image.packages.${system}."comfyui-workflow-templates-media-image";
-                comfyui-workflow-templates-media-other = comfyui-workflow-templates-media-other.packages.${system}."comfyui-workflow-templates-media-other";
                 comfyui-embedded-docs = comfyui-embedded-docs.packages.${system}."comfyui-embedded-docs";
                 comfy-kitchen = comfy-kitchen.packages.${system}."comfy-kitchen";
                 comfy-aimdo = comfy-aimdo.packages.${system}."comfy-aimdo";
@@ -158,6 +117,21 @@
           update-version = flake-lib.lib.mkUpdateVersion {
             inherit pkgs source;
             buildAttr = "comfyui";
+            siblingRefsInPin = true;
+            siblings = map
+              (reqName: {
+                inherit reqName;
+                pypiName = reqName;
+                flakeRepo = "jgus/${reqName}-flake";
+                mode = "exact";
+              })
+              [
+                "comfyui-frontend-package"
+                "comfyui-workflow-templates"
+                "comfyui-embedded-docs"
+                "comfy-kitchen"
+                "comfy-aimdo"
+              ];
           };
           update-branches = flake-lib.lib.mkUpdateBranches {
             inherit pkgs source;
