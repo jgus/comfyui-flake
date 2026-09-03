@@ -1,7 +1,7 @@
 name: Update branches
 on:
   schedule:
-    - cron: '30 7 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch: {}
 permissions:
   contents: write
